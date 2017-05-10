@@ -51,7 +51,7 @@ module Guard
       if @pid
         begin
           debug "Asking Foreman to terminate... (#{@pid})"
-          ::Process.kill("TERM", @pid)
+          ::Process.kill("SIGINT", @pid)
           debug "Waiting for Foreman to stop..."
           ::Process.waitpid(@pid)
           @pid = nil          # Unset @pid
